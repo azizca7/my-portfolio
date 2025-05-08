@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://azizbek.uz
+
+# Sitemaps
+Sitemap: https://azizbek.uz/sitemap.xml
