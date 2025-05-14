@@ -1,22 +1,25 @@
-"use client"
-import React, { useRef } from 'react'
-import { Badge } from './ui/badge'
-import { Card, CardContent } from './ui/card'
-import { Button } from './ui/button'
-import { Input } from './ui/input'
-import { Textarea } from './ui/textarea'
-import emailjs from 'emailjs-com'
-import { ToastContainer, toast } from 'react-toastify';
+"use client";
+
+import React, { useRef } from "react";
+import { Badge } from "./ui/badge";
+import { Card, CardContent } from "./ui/card";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import emailjs from "emailjs-com";
+import { ToastContainer, toast } from "react-toastify";
+import { motion } from "framer-motion";
+
 function Contact() {
   const form = useRef<HTMLFormElement>(null);
-  const success = (e:string) => toast.success(e);
-  const errorAlert = (e:string) => toast.error(e);
+  const success = (e: string) => toast.success(e);
+  const errorAlert = (e: string) => toast.error(e);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+
     if (!form.current) return;
-  
+
     emailjs
       .sendForm(
         "service_4xan7s7",
@@ -39,7 +42,13 @@ function Contact() {
 
   return (
     <section id="contact" className="py-10 md:py-20 container px-4 mx-auto">
-      <div className="max-w-3xl mx-auto text-center mb-16">
+      <motion.div
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="max-w-3xl mx-auto text-center mb-16"
+      >
         <Badge className="mb-4 bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 transition-colors">
           Get In Touch
         </Badge>
@@ -54,9 +63,15 @@ function Contact() {
             "Would you like to work with me on a project? I am ready to work with you."
           }
         </p>
-      </div>
+      </motion.div>
 
-      <div className="max-w-2xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+        viewport={{ once: true }}
+        className="max-w-2xl mx-auto"
+      >
         <Card className="bg-white/5 border-white/10">
           <CardContent className="p-6">
             <form ref={form} onSubmit={sendEmail} className="grid gap-6">
@@ -115,10 +130,11 @@ function Contact() {
         <div className="mt-12 text-center text-gray-800 dark:text-white/70">
           <p>I left a link in the footer for you to contact me.</p>
         </div>
-      </div>
+      </motion.div>
+
       <ToastContainer theme="dark" />
     </section>
   );
 }
 
-export default Contact
+export default Contact;

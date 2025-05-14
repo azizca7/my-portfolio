@@ -12,13 +12,19 @@ import {
 } from "../ui/tooltip";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
-import { Sparkles } from "lucide-react"; 
+import { Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 
 function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/60 border-b border-border/20 shadow-md">
+    <motion.header
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/60 border-b border-border/20 shadow-md"
+    >
       <div className="container flex items-center justify-between h-16 px-4">
         <Link href="/" className="flex items-center gap-1 group">
           <span className="text-xl font-bold tracking-tight transition-colors">
@@ -40,6 +46,7 @@ function Navbar() {
             </Link>
           ))}
         </nav>
+
         <div className="flex items-center space-x-2">
           {socialLinks.map((social: ISocial) => (
             <TooltipProvider key={social.link}>
@@ -70,7 +77,7 @@ function Navbar() {
           ))}
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }
 

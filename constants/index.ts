@@ -1,4 +1,4 @@
-import { TicTacToe, ComfyStore, ClothingStore } from "@/assets";
+import { TicTacToe, ComfyStore,  NinthPlanet } from "@/assets";
 import { Github, Instagram, Mail, Send } from "lucide-react";
 import {
   SiNextdotjs,
@@ -39,6 +39,15 @@ export const skills = [
 
 export const projects = [
   {
+    title: "Ninth Planet",
+    descr:
+      "A modern and responsive website created for the music project The Ninth Planet (Yamadzhi & Furcade). Developed using Next.js, TypeScript, TailwindCSS, Framer Motion, and EmailJS. Features include animated UI, contact form, and social media integration..",
+    tags: ["Next.js", "Typescript", "Framer M", "EmailJS"],
+    image: NinthPlanet,
+    githubLink: "https://github.com/azizca7/ninthplanet",
+    siteLink: "https://ninthplanetuz.vercel.app/",
+  },
+  {
     title: "Comfy Store",
     descr:
       "Very convenient online store. You can order the product you like in this store. This store is useful for you",
@@ -55,15 +64,6 @@ export const projects = [
     image: TicTacToe,
     githubLink: "https://github.com/azizca7/tic-tac-toe",
     siteLink: "https://tic-tac-toe-seven-chi-99.vercel.app/",
-  },
-  {
-    title: "Clothing Store",
-    descr:
-      "The clothing store is very well designed. If I optimize it, it will be a ready-made website for clothing stores.",
-    tags: ["React", "Axios"],
-    image: ClothingStore,
-    githubLink: "https://github.com/azizca7/online-magazine",
-    siteLink: "https://online-magazine-eight.vercel.app/",
   },
 ];
 

@@ -19,15 +19,21 @@ function Footer() {
 
   return (
     <motion.footer
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
       className="py-10 border-t border-gray-200 dark:border-white/10 mt-10 bg-background"
     >
       <div className="container px-4 mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="text-center md:text-left">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-center md:text-left"
+          >
             <Link
               href="/"
               className="text-2xl font-bold tracking-tight text-purple-500"
@@ -37,9 +43,15 @@ function Footer() {
             <p className="text-sm text-muted-foreground mt-1">
               © {new Date().getFullYear()} All rights reserved.
             </p>
-          </div>
+          </motion.div>
 
-          <nav className="flex flex-wrap items-center justify-center gap-5">
+          <motion.nav
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap items-center justify-center gap-5"
+          >
             {navLinks.map((item: ILink) => (
               <Link
                 href={pathname === "/allprojects" ? `/${item.link}` : item.link}
@@ -51,9 +63,15 @@ function Footer() {
                 {item.title}
               </Link>
             ))}
-          </nav>
+          </motion.nav>
 
-          <div className="flex items-center gap-3">
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="flex items-center gap-3"
+          >
             {socialLinks.map((social: ISocial) => (
               <TooltipProvider key={social.link}>
                 <Tooltip>
@@ -76,7 +94,7 @@ function Footer() {
                 </Tooltip>
               </TooltipProvider>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </motion.footer>

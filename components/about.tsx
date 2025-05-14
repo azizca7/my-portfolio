@@ -1,10 +1,19 @@
-import React from 'react'
-import { Badge } from './ui/badge'
+"use client";
+
+import React from "react";
+import { Badge } from "./ui/badge";
+import { motion } from "framer-motion";
 
 function About() {
   return (
     <section id="about" className="bg-background py-10 md:py-15">
-      <div className="container mx-auto px-4 text-center">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="container mx-auto px-4 text-center"
+      >
         <Badge className="mb-4 bg-blue-400/10 text-blue-400 hover:bg-blue-400/20 transition-colors">
           About me
         </Badge>
@@ -26,9 +35,9 @@ function About() {
             explore new technologies.
           </p>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
 
-export default About
+export default About;
