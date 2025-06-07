@@ -45,7 +45,7 @@ export const projects = [
     tags: ["Next.js", "Typescript", "Framer M", "EmailJS"],
     image: NinthPlanet,
     githubLink: "https://github.com/azizca7/ninthplanet",
-    siteLink: "https://ninthplanetuz.vercel.app/",
+    siteLink: "https://www.theninthplanet.uz/",
   },
   {
     title: "Comfy Store",
